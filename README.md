@@ -1,2 +1,2 @@
 # ResponsiveBar-Test
-Navbar Test
+Navbar Testing
