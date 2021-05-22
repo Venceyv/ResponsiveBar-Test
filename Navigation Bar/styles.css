@@ -1,0 +1,250 @@
+/* Itim Font From Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Open+Sans:wght@300&display=swap');
+
+/*** Universal Properties BEGIN ***/
+*{
+    font-family:'Itim', cursive;
+    font-weight:bolder;
+}
+
+html{
+    box-sizing:border-box;
+}
+
+*, *:before, *:after{
+    box-sizing:inherit
+}
+
+:root{
+    --textColor:#ff7eee;
+    --textColor2:#df49a6;
+    --bg-prime:#23232e;
+    --bg-second:#141418;
+    --blue-color:rgba(33,150,243,1);
+    margin:0;
+    padding:0;
+    background-color: var(--bg-second);
+    color:var(--textColor);
+    font-size:16px;
+    overflow-x:hidden; 
+    overflow-y:scroll;
+}
+
+body{
+    margin:0;
+}
+/*** Universal Properties END ***/
+
+
+
+/*** Scrollbar Customization BEGIN ***/
+::-webkit-scrollbar{
+    background-color:var(--bg-prime);
+    width: 14px;
+}
+
+/* create transparent border around scrollbar thumb */
+::-webkit-scrollbar-thumb{
+    background:gray;
+    height:6px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border:4px solid transparent;
+}
+
+::-webkit-scrollbar-button{
+    display:none;
+}
+/*** Scrollbar Customization END ***/
+
+
+
+/*** Navbar BEGIN ***/
+/* big-screen, navbar at top */
+@media screen and (min-width:475px){
+
+    .navbar-container{
+        position:sticky;
+        top:0;
+        /* cover main body when expanded */
+        z-index: 2;
+    }
+
+    .navbar-list{
+        margin:0;
+        padding:0;
+        width:100%;
+        height:3.5rem;
+        display:flex;
+        flex-direction:row;
+        list-style: none;
+        box-sizing:content-box;
+        align-items: center;
+        background:var(--bg-prime);
+        transition:600ms;
+    }
+
+    .navbar-item svg{
+        width:2.5rem;
+        height:2.5rem;
+        padding:0 0.5rem;
+        color:var(--textColor2);
+    }
+
+    .navbar-link, .navbar-link:visited{
+        text-decoration: none;
+        color:var(--textColor);
+    }
+
+    /* place arrow icon to far right */
+    .navbar-item:last-child{
+        margin-left:auto;
+    }
+
+    /* navbar-hover arrow indication */
+    .navbar-list:hover .navbar-item.arrow-icon{
+        filter: grayscale(0%) opacity(0.9);
+        transform:scale(1.3) rotate(540deg);
+    }
+
+
+    /** Grayout Icons For Hover Highlight BEGIN **/
+    .navbar-item{
+        padding:0rem 1rem;
+        filter: grayscale(100%) opacity(1);
+        transition:500ms;
+    }
+
+    .navbar-item:hover{
+        filter: grayscale(0%) opacity(0.9);
+    }
+    /** Grayout Icons For Hover Highlight END **/
+
+
+    /** Display Icon Name On Hover BEGIN **/
+    .navbar-text{
+        text-align: center;
+        display:none;
+    }
+
+    .navbar-list:hover{
+        height: 4.5rem;
+    }
+
+    .navbar-list:hover .navbar-text{
+        display:block;
+    }
+    /** Display Icon Name On Hover END **/
+}
+
+/* smaller-screen, navbar at left */
+@media screen and (max-width:480px){
+
+    .navbar-container{
+        position:fixed;
+        left:0;
+        height:100vh;
+        /* cover main body when expanded */
+        z-index:2;
+    }
+
+    /* fix margin caused by form margins*/
+    .form-container{
+        margin-left:2rem;
+        margin-top:0rem;
+        padding-top:3rem;
+    } 
+
+    .navbar-list{
+        height:100%;
+        top:0;
+        left:0;
+        margin:0;
+        padding:0;
+        width:3.5rem;
+        display:flex;
+        flex-direction: column;
+        list-style: none;
+        box-sizing:content-box;
+        align-items: center;
+        background:var(--bg-prime);
+        transition:600ms;
+    }
+
+    .navbar-link{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar-link, .navbar-link:visited{
+        text-decoration: none;
+        color:var(--textColor);
+    }
+
+    .navbar-item svg{
+        width:2.5rem;
+        height:2.5rem;
+        padding:0.5rem;
+        color:var(--textColor2);
+    }
+
+    /* place last icon at bottom */
+    .navbar-item:last-child{
+        margin-top:auto;
+    }
+
+
+    /** Grayout Icons For Hover Highlight BEGIN **/
+    .navbar-item{
+        width:100%;
+        padding:0.5rem 0rem;
+        filter: grayscale(100%) opacity(1);
+        transition:600ms;
+    }
+
+    .navbar-item:hover{
+        filter: grayscale(0%) opacity(0.9);
+    }
+    /** Grayout Icons For Hover Highlight END **/
+
+    
+    /** Display Icon Name On Hover BEGIN **/
+    .navbar-text{
+        display:none;
+    }
+
+    .navbar-list:hover{
+        width: 8rem;
+    }
+
+    .navbar-list:hover .navbar-text{
+        display:inline-block;
+    }
+    /** Display Icon Name On Hover END **/
+   
+
+    /** Navbar-Hover Arrow Indication BEGIN **/
+    .navbar-item.arrow-icon svg{
+        transform:rotate(-90deg);
+        transition: transform 600ms;
+    }
+
+    /* 1)isolate arrow icon from navbar-item grayout 
+       2)isolate because rotate arrow pointing left */
+    .navbar-item.arrow-icon{
+        filter: grayscale(0%) opacity(0.9);
+    }
+
+    .navbar-item.arrow-icon svg{
+        filter: grayscale(100%) opacity(0.9);
+        transition:600ms;
+    }
+
+    .navbar-list:hover svg.arrow{
+        transform:scale(1.3) rotate(450deg) translateY(-1.9rem);
+        filter: grayscale(0%) opacity(0.9);
+    }
+    /** Navbar-Hover Arrow Indication END **/
+}
+/*** Navbar END ***/
